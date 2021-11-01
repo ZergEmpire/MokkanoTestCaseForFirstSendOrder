@@ -115,7 +115,9 @@ public class TestBase {
     @Step("Перехожу в корзину")
     public void goBasket() {
 
-        $x("//div[contains(@class, \"price\")]/a[contains(@class, \"cart-price\")]").scrollTo().doubleClick();
+        SelenideElement moveToBusket = $x("//div[contains(@class, \"price\")]/a[contains(@class, \"cart-price\")]");
+        moveToBusket.scrollTo().hover();
+        $x("//div[@class = \"cart-preview-wrapper\"]/a[@href = \"/order\"]").click();
     }
 
     @Step("Выбираю тип доставки самовывоз")
